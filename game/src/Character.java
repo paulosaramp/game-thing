@@ -6,6 +6,7 @@ public class Character {
     private int agility;
     private int technique;
     private int abilityPoints;
+    private String readiedAttack;
 
     @Override
     public boolean equals(Object o) {
@@ -68,6 +69,14 @@ public class Character {
         this.technique = technique;
     }
 
+    public String getReadiedAttack() {
+        return readiedAttack;
+    }
+
+    public void setReadiedAttack(String readiedAttack) {
+        this.readiedAttack = readiedAttack;
+    }
+
     public boolean strengthIncrease(){
         if(abilityPoints>0){
             strength++;
@@ -121,4 +130,6 @@ public class Character {
         }
         return false;
     }
+
+
 }
