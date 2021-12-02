@@ -63,7 +63,17 @@ public class Game {
         return 0;
     }
 
-    //public int clashRound(){
-    //    if(c1.getReadiedAttack().equals("push")){}//todo:finish
-    //}
+    public int clashRound(){
+        if(c1.getReadiedAttack().equals("push")){
+            if(c2.getReadiedAttack().equals("push")){
+                return 211;//clash continues
+            }
+            if(c2.getReadiedAttack().equals("redirect")){
+                return 212;//c2 deals damage to c1, go to normal round
+            }
+            if(c2.getReadiedAttack().equals("backwardsAttack")){
+                return 213;//c1 deals damage to c2, clash continues
+            }
+        }
+    }
 }
