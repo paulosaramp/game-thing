@@ -7,6 +7,7 @@ public class Character {
     private int technique;
     private int abilityPoints;
     private String readiedAttack;
+    private int hp;
 
     @Override
     public boolean equals(Object o) {
@@ -27,6 +28,15 @@ public class Character {
         agility=5;
         technique=5;
         abilityPoints=5;
+        hp=5;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 
     public int getAbilityPoints() {
@@ -104,6 +114,10 @@ public class Character {
         return false;
     }
 
+    public void hpIncrease(){
+        hp++;
+    }
+
     public boolean strengthDecrease(){
         if(strength>5){
             strength--;
@@ -131,5 +145,22 @@ public class Character {
         return false;
     }
 
+    //false means he dead dead (overloaded for damage input option)
+    public boolean hpDecrease(){
+        if(hp>0 && hp-1>0){
+            hp--;
+            return true;
+        }
+        hp=0;
+        return false;
+    }
 
+    public boolean hpDecrease(int damage){
+        if(hp>0 && hp-damage>0){
+            hp=hp-damage;
+            return true;
+        }
+        hp=0;
+        return false;
+    }
 }

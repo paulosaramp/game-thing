@@ -29,35 +29,35 @@ public class Game {
     public int normalRound(){
         if(c1.getReadiedAttack().equals("powerAttack")){//strength based
             if(c2.getReadiedAttack().equals("powerAttack")){
-                return 11;//go into clash
+                return 111;//go into clash
             }
-            if(c2.getReadiedAttack().equals("feintAttack")){
-                return 12;//c1 deals damage to c2
+            else if(c2.getReadiedAttack().equals("feintAttack")){
+                return 112;//c1 deals damage to c2
             }
-            if(c2.getReadiedAttack().equals("counterAttack")){
-                return 13;//c2 deals damage to c1
-            }
-        }
-        if(c1.getReadiedAttack().equals("feintAttack")){//agility based
-            if(c2.getReadiedAttack().equals("powerAttack")){
-                return 21;//c2 deals damage to c1
-            }
-            if(c2.getReadiedAttack().equals("feintAttack")){
-                return 22;//no one takes damage
-            }
-            if(c2.getReadiedAttack().equals("counterAttack")){
-                return 23;//c1 deals damage to c2
+            else if(c2.getReadiedAttack().equals("counterAttack")){
+                return 113;//c2 deals damage to c1
             }
         }
-        if(c1.getReadiedAttack().equals("counterAttack")){//technique based
+        else if(c1.getReadiedAttack().equals("feintAttack")){//agility based
             if(c2.getReadiedAttack().equals("powerAttack")){
-                return 31;//c1 deals damage to c2
+                return 121;//c2 deals damage to c1
             }
-            if(c2.getReadiedAttack().equals("feintAttack")){
-                return 32;//c2 deals damage to c1
+            else if(c2.getReadiedAttack().equals("feintAttack")){
+                return 122;//no one takes damage
             }
-            if(c2.getReadiedAttack().equals("counterAttack")){
-                return 33;//to be decided
+            else if(c2.getReadiedAttack().equals("counterAttack")){
+                return 123;//c1 deals damage to c2
+            }
+        }
+        else if(c1.getReadiedAttack().equals("counterAttack")){//technique based
+            if(c2.getReadiedAttack().equals("powerAttack")){
+                return 131;//c1 deals damage to c2
+            }
+            else if(c2.getReadiedAttack().equals("feintAttack")){
+                return 132;//c2 deals damage to c1
+            }
+            else if(c2.getReadiedAttack().equals("counterAttack")){
+                return 133;//to be decided
             }
         }
         return 0;
@@ -68,12 +68,35 @@ public class Game {
             if(c2.getReadiedAttack().equals("push")){
                 return 211;//clash continues
             }
-            if(c2.getReadiedAttack().equals("redirect")){
+            else if(c2.getReadiedAttack().equals("redirect")){
                 return 212;//c2 deals damage to c1, go to normal round
             }
-            if(c2.getReadiedAttack().equals("backwardsAttack")){
+            else if(c2.getReadiedAttack().equals("backwardsAttack")){
                 return 213;//c1 deals damage to c2, clash continues
             }
         }
+        else if(c1.getReadiedAttack().equals("redirect")){
+            if(c2.getReadiedAttack().equals("push")){
+                return 221;//c1 deals damage to c2, go to normal round
+            }
+            else if(c2.getReadiedAttack().equals("redirect")){
+                return 222;//no damage, go to normal round
+            }
+            else if(c2.getReadiedAttack().equals("backwardsAttack")){
+                return 223;//c2 deals damage to c1, go to normal round
+            }
+        }
+        else if(c1.getReadiedAttack().equals("backwardsAttack")){
+            if(c2.getReadiedAttack().equals("push")){
+                return 231;//c2 deals damage to c1, clash continues
+            }
+            else if(c2.getReadiedAttack().equals("redirect")){
+                return 232;//c1 deals damage to c2, go to normal round
+            }
+            else if(c2.getReadiedAttack().equals("backwardsAttack")){
+                return 233;//both take damage, go to normal round
+            }
+        }
+        return 0;
     }
 }
